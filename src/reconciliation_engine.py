@@ -2,8 +2,8 @@ import pandas as pd
 
 
 def run_reconciliation(
-    payments_file="../Data/payments.csv",
-    settlements_file="../Data/settlements.csv"
+    payments_file="Data/payments.csv",
+    settlements_file="Data/settlements.csv"
 ):
     # Load payment data
     payments = pd.read_csv(payments_file)

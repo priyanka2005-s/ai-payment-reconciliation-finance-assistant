@@ -176,6 +176,9 @@ If the user asks about missing settlements, provide the transaction IDs/order ID
 
 If the user asks about amount mismatches, provide the transaction IDs/order IDs and amount differences from the Amount mismatch transactions section.
 
+Do not use markdown links, HTML, SVG links, anchors, or localhost links.
+Use plain text headings and bullet points only.
+
 Do not invent transaction IDs or other data.
 
 User question:
