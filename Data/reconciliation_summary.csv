@@ -1,0 +1,2 @@
+total_payments,total_payment_amount,matched_transactions,amount_mismatches,missing_settlements,total_mismatch_amount,unmatched_settlements,duplicate_settlement_records,duplicate_orders
+120,226400,108,6,6,600.0,5,2,1
