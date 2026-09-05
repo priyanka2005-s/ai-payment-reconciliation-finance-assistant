@@ -221,7 +221,7 @@ GEMINI_API_KEY
 
 Sensitive files and environment secrets are excluded through `.gitignore`.
 
-## ▶️ Run the Project Locally
+## Run the Project Locally
 
 ### 1. Clone the repository
 
