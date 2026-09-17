@@ -85,8 +85,8 @@ settlements_df = pd.DataFrame(settlements)
 
 
 # Save CSV files
-payments_df.to_csv("data/payments.csv", index=False)
-settlements_df.to_csv("data/settlements.csv", index=False)
+payments_df.to_csv("Data/payments.csv", index=False)
+settlements_df.to_csv("Data/settlements.csv", index=False)
 
 
 print("Data generation completed successfully!")

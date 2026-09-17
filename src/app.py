@@ -185,16 +185,13 @@ User question:
 {user_question}
 """
 
-try:
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=context
-    )
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=context
+        )
 
-    st.write(response.text)
+        st.write(response.text)
 
-except Exception:
-    st.warning(
-        "⚠️ The AI service is temporarily unavailable. "
-        "Please try again in a moment."
-    )
+    except Exception as e:
+        st.error(f"AI Error: {e}")

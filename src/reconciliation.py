@@ -3,10 +3,10 @@ from pathlib import Path
 
 
 # Load payment data
-payments = pd.read_csv("data/payments.csv")
+payments = pd.read_csv("Data/payments.csv")
 
 # Load settlement data
-settlements = pd.read_csv("data/settlements.csv")
+settlements = pd.read_csv("Data/settlements.csv")
 
 clean_settlements = settlements.drop_duplicates(
     subset=["order_id"],
