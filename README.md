@@ -160,7 +160,7 @@ The reconciliation engine produces:
 
 The Streamlit application sends the relevant reconciliation context to Gemini so users can ask questions using natural language.
 
-##  Streamlit Application
+## Streamlit Application
 
 The Streamlit dashboard provides:
 
@@ -174,6 +174,18 @@ The Streamlit dashboard provides:
 * Reconciliation status chart
 * Exception transaction table
 * AI Finance Assistant
+
+### Dashboard Overview
+
+The main dashboard provides a high-level view of payment reconciliation results and financial exceptions.
+
+![Streamlit Dashboard Overview](images/streamlit-dashboard-overview.png)
+
+### Exceptions & AI Finance Assistant
+
+The exception view provides transaction-level details and allows users to ask natural-language questions using the AI Finance Assistant.
+
+![Streamlit Exceptions and AI Finance Assistant](images/streamlit-exceptions-ai.png)
 
 ##  Power BI Dashboard
 
