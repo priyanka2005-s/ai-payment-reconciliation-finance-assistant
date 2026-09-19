@@ -85,6 +85,9 @@ The AI is provided with the reconciliation results as context and is instructed 
 
 ##  Project Structure
 
+## Project Structure
+
+```text
 ai-payment-reconciliation-finance-controller/
 │
 ├── Data/
@@ -114,6 +117,7 @@ ai-payment-reconciliation-finance-controller/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
 ##  How It Works
 
