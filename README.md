@@ -1,19 +1,19 @@
 # AI Payment Reconciliation & Finance Assistant
 
-An AI-powered payment and settlement reconciliation system that automatically compares payment records with settlement records, identifies financial exceptions, and provides an AI Finance Assistant for answering reconciliation questions.
+An AI-powered payment and settlement reconciliation system that automatically compares payment records with settlement records, identifies financial exceptions, and provides an AI Finance Assistant for answering reconciliation-related questions.
 
-##  Project Overview
+## Project Overview
 
-Payment reconciliation is an important finance operation where payment transactions need to be matched against settlement records.
+Payment reconciliation is an important finance operation where payment transactions are matched against settlement records to identify discrepancies.
 
-This project automates that workflow using **Python and Pandas** and adds an **AI Finance Assistant powered by Gemini** to help users understand reconciliation results through natural-language questions.
+This project automates the reconciliation workflow using **Python and Pandas** and provides an **AI Finance Assistant powered by Google Gemini** to help users understand reconciliation results through natural-language questions.
 
 ### Workflow
 
 ```text
 Payments CSV + Settlements CSV
             ↓
-     Python / Pandas
+      Python / Pandas
             ↓
    Reconciliation Engine
             ↓
@@ -21,72 +21,86 @@ Payments CSV + Settlements CSV
             ↓
    Reconciliation Results
             ↓
-      AI Finance Assistant
+    Streamlit Dashboard
             ↓
-       Streamlit Dashboard
+    AI Finance Assistant
 ```
 
-##  Key Features
+## Key Features
 
-* Automated payment and settlement reconciliation
-* Payment-to-settlement matching using `order_id`
-* Detection of amount mismatches
-* Detection of missing settlements
-* Detection of unmatched settlements
-* Detection of duplicate settlement records
-* Automatic calculation of mismatch amounts
-* Reconciliation summary and exception reporting
-* Interactive Streamlit dashboard
-* Gemini-powered AI Finance Assistant
-* Natural-language questions about reconciliation results
-* Power BI dashboard for financial analysis
+- Automated payment and settlement reconciliation
+- Payment-to-settlement matching using `order_id`
+- Detection of amount mismatches
+- Detection of missing settlements
+- Detection of unmatched settlements
+- Detection of duplicate settlement records
+- Calculation of payment and settlement differences
+- Reconciliation summary and exception reporting
+- Interactive Streamlit dashboard
+- Gemini-powered AI Finance Assistant
+- Natural-language questions about reconciliation results
+- Power BI dashboard for financial analysis
 
-##  Reconciliation Results
+## Reconciliation Results
 
-The project uses a synthetic dataset containing **120 payment transactions**.
+The project uses a synthetic dataset containing **120 payment transactions** with intentionally created exceptions to demonstrate real-world reconciliation scenarios.
 
-| Metric                       |   Result |
-| ---------------------------- | -------: |
-| Total Payments               |      120 |
-| Total Payment Amount         | ₹226,400 |
-| Matched Transactions         |      108 |
-| Amount Mismatches            |        6 |
-| Missing Settlements          |        6 |
-| Total Exceptions             |       12 |
-| Total Mismatch Amount        |     ₹600 |
-| Unmatched Settlements        |        5 |
-| Duplicate Settlement Records |        2 |
+| Metric | Result |
+|---|---:|
+| Total Payments | 120 |
+| Total Payment Amount | ₹226,400 |
+| Matched Transactions | 108 |
+| Amount Mismatches | 6 |
+| Missing Settlements | 6 |
+| Total Exceptions | 12 |
+| Total Mismatch Amount | ₹600 |
+| Unmatched Settlements | 5 |
+| Duplicate Settlement Records | 2 |
 
-The reconciliation engine intentionally contains exceptions so that the system can demonstrate real-world finance reconciliation scenarios.
+### Reconciliation Status
 
-##  AI Finance Assistant
+The reconciliation engine categorizes payment transactions as:
 
-The AI assistant uses Gemini to answer questions based on the reconciliation results.
+- `MATCHED`
+- `AMOUNT MISMATCH`
+- `MISSING SETTLEMENT`
 
-Example questions:
+Additional settlement-side exceptions are also identified:
 
-* How many transactions failed reconciliation?
-* What is the total mismatch amount?
-* Which transactions have missing settlements?
-* Which transactions have amount mismatches?
-* What are the main reconciliation issues?
+- `UNMATCHED SETTLEMENT`
+- `DUPLICATE SETTLEMENT`
 
-The AI is provided with the reconciliation results as context and is instructed to answer using only the available reconciliation information.
+## AI Finance Assistant
 
-##  Technology Stack
+The AI Finance Assistant uses the **Google Gemini API** to answer questions based on the reconciliation results.
 
-* **Python**
-* **Pandas**
-* **Google Gemini API**
-* **Streamlit**
-* **Power BI**
-* **Excel**
-* **Git & GitHub**
+Example questions include:
+
+- How many transactions failed reconciliation?
+- What is the total mismatch amount?
+- Which transactions have missing settlements?
+- Which transactions have amount mismatches?
+- What are the main reconciliation issues?
+
+The reconciliation results are provided to the AI as context so that responses are based on the available project data.
+
+## Technology Stack
+
+| Category | Technologies |
+|---|---|
+| Programming | Python |
+| Data Analysis | Pandas |
+| Database / Data Storage | CSV |
+| AI | Google Gemini API |
+| Application | Streamlit |
+| Visualization | Power BI, Excel |
+| Development Tools | VS Code |
+| Version Control | Git, GitHub |
 
 ## Project Structure
 
 ```text
-ai-payment-reconciliation-finance-controller/
+ai-payment-reconciliation-finance-assistant/
 │
 ├── Data/
 │   ├── payments.csv
@@ -117,7 +131,7 @@ ai-payment-reconciliation-finance-controller/
 └── README.md
 ```
 
-##  How It Works
+## How It Works
 
 ### 1. Load Payment Data
 
@@ -127,9 +141,9 @@ The system reads payment transaction data from `payments.csv`.
 
 Settlement information is loaded from `settlements.csv`.
 
-### 3. Clean Settlement Records
+### 3. Identify Duplicate Settlement Records
 
-Duplicate settlement records are identified and handled before reconciliation.
+Duplicate settlement records are identified before performing the reconciliation analysis.
 
 ### 4. Match Transactions
 
@@ -137,7 +151,7 @@ Payment and settlement records are matched using the `order_id`.
 
 ### 5. Calculate Differences
 
-The system calculates:
+For matched transactions, the system calculates the difference between the payment amount and settled amount.
 
 ```text
 Difference = Payment Amount - Settled Amount
@@ -145,43 +159,51 @@ Difference = Payment Amount - Settled Amount
 
 ### 6. Determine Reconciliation Status
 
-Each transaction receives a reconciliation status:
+Each payment transaction receives a reconciliation status:
 
-* `MATCHED`
-* `AMOUNT MISMATCH`
-* `MISSING SETTLEMENT`
+```text
+MATCHED
+AMOUNT MISMATCH
+MISSING SETTLEMENT
+```
 
-Additional settlement-side exceptions are also reported:
+Settlement-side exceptions are also reported:
 
-* `UNMATCHED SETTLEMENT`
-* `DUPLICATE SETTLEMENT`
+```text
+UNMATCHED SETTLEMENT
+DUPLICATE SETTLEMENT
+```
 
 ### 7. Generate Reports
 
 The reconciliation engine produces:
 
-* Reconciliation results
-* Exception report
-* Reconciliation summary
+- Reconciliation results
+- Exception report
+- Reconciliation summary
 
-### 8. Ask Questions Using AI
+### 8. Analyze Results
 
-The Streamlit application sends the relevant reconciliation context to Gemini so users can ask questions using natural language.
+The processed reconciliation data is displayed through the Streamlit and Power BI dashboards.
+
+### 9. Ask Questions Using AI
+
+The Streamlit application provides the reconciliation context to Gemini, allowing users to ask natural-language questions about the results.
 
 ## Streamlit Application
 
 The Streamlit dashboard provides:
 
-* Reconciliation overview
-* Total payment amount
-* Matched transactions
-* Exception transactions
-* Amount mismatches
-* Missing settlements
-* Mismatch amount
-* Reconciliation status chart
-* Exception transaction table
-* AI Finance Assistant
+- Reconciliation overview
+- Total payment amount
+- Matched transactions
+- Exception transactions
+- Amount mismatches
+- Missing settlements
+- Mismatch amount
+- Reconciliation status chart
+- Exception transaction table
+- AI Finance Assistant
 
 ### Dashboard Overview
 
@@ -201,26 +223,27 @@ A short walkthrough demonstrating the payment reconciliation dashboard and AI Fi
 
 [▶ Watch the Demo Video](https://drive.google.com/file/d/1G40kah7KbWhw-_y3mVcD_T-tj1KjRaTS/view?usp=drivesdk)
 
-##  Power BI Dashboard
+## Power BI Dashboard
 
-A Power BI dashboard was created to analyze the reconciliation data visually.
+A Power BI dashboard was created to analyze payment and settlement reconciliation data visually.
+
 Key dashboard metrics include:
 
-* Total Payments
-* Total Payment Amount
-* Total Settled Amount
-* Reconciliation Rate
-* Exception Rate
-* Matched Transactions
-* Exception Transactions
-* Total Mismatch Amount
-* Average Settlement Delay
+- Total Payments
+- Total Payment Amount
+- Total Settled Amount
+- Reconciliation Rate
+- Exception Rate
+- Matched Transactions
+- Exception Transactions
+- Total Mismatch Amount
+- Average Settlement Delay
 
 The dashboard also includes reconciliation status and settlement analysis visuals.
 
 ![Power BI Payment Reconciliation Dashboard](images/powerbi-dashboard.png)
 
-##  Testing
+## Testing
 
 The reconciliation engine was tested using the synthetic payment and settlement dataset.
 
@@ -236,7 +259,7 @@ Total Mismatch Amount: 600.0
 
 The engine test completed successfully.
 
-##  Security
+## Security
 
 The Gemini API key is **not stored in the source code**.
 
@@ -250,24 +273,24 @@ Sensitive files and environment secrets are excluded through `.gitignore`.
 
 ## Run the Project Locally
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/priyanka2005-s/ai-payment-reconciliation-finance-controller.git
-cd ai-payment-reconciliation-finance-controller
+git clone https://github.com/priyanka2005-s/ai-payment-reconciliation-finance-assistant.git
+cd ai-payment-reconciliation-finance-assistant
 ```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Set the Gemini API key
+### 3. Set the Gemini API Key
 
 Set the `GEMINI_API_KEY` environment variable on your system.
 
-### 4. Run the Streamlit application
+### 4. Run the Streamlit Application
 
 ```bash
 streamlit run src/app.py
@@ -275,31 +298,31 @@ streamlit run src/app.py
 
 The application will open in your browser.
 
-##  Business Value
+## Business Value
 
-This project demonstrates how automation and AI can support finance operations by:
+This project demonstrates how data processing, automation, dashboards, and generative AI can support finance operations by:
 
-* Reducing manual reconciliation effort
-* Identifying financial exceptions quickly
-* Providing structured exception reports
-* Making reconciliation data easier to understand
-* Allowing finance users to ask questions in natural language
-* Combining traditional data processing with generative AI
+- Reducing manual reconciliation effort
+- Identifying financial exceptions quickly
+- Providing structured exception reports
+- Making reconciliation data easier to understand
+- Allowing finance users to ask questions in natural language
+- Combining traditional data processing with generative AI
 
 ## Future Improvements
 
 Potential future improvements include:
 
-* Upload payment and settlement files directly through the UI
-* Automated reconciliation scheduling
-* Database integration
-* Role-based access control
-* Automated exception alerts
-* Larger datasets and performance benchmarking
-* More advanced AI-based financial analysis
-* Deployment to a cloud platform
+- Upload payment and settlement files directly through the UI
+- Automated reconciliation scheduling
+- Database integration
+- Role-based access control
+- Automated exception alerts
+- Larger datasets and performance benchmarking
+- More advanced AI-based financial analysis
+- Deployment to a cloud platform
 
-##  Author
+## Author
 
 **Priyanka**
 
