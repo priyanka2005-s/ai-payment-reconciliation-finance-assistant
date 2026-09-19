@@ -187,10 +187,15 @@ The exception view provides transaction-level details and allows users to ask na
 
 ![Streamlit Exceptions and AI Finance Assistant](images/streamlit-exceptions-ai.png)
 
+### Demo Video
+
+A short walkthrough demonstrating the payment reconciliation dashboard and AI Finance Assistant.
+
+[▶ Watch the Demo Video](demo/ai-payment-reconciliation-demo.mp4)
+
 ##  Power BI Dashboard
 
 A Power BI dashboard was created to analyze the reconciliation data visually.
-
 Key dashboard metrics include:
 
 * Total Payments
@@ -204,6 +209,8 @@ Key dashboard metrics include:
 * Average Settlement Delay
 
 The dashboard also includes reconciliation status and settlement analysis visuals.
+
+![Power BI Payment Reconciliation Dashboard](images/powerbi-dashboard.png)
 
 ##  Testing
 
