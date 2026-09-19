@@ -1,4 +1,4 @@
-# AI Payment Reconciliation & Finance Controller
+# AI Payment Reconciliation & Finance Assistant
 
 An AI-powered payment and settlement reconciliation system that automatically compares payment records with settlement records, identifies financial exceptions, and provides an AI Finance Assistant for answering reconciliation questions.
 

@@ -8,13 +8,13 @@ api_key = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
 st.set_page_config(
-    page_title="AI Finance Controller",
+    page_title="AI Payment Reconciliation & Finance Assistant",
     page_icon="💰",
     layout="wide"
 )
 
 
-st.title("💰 AI Finance Controller")
+st.title("AI Payment Reconciliation & Finance Assistant")
 
 st.write(
     "AI-powered payment and settlement reconciliation assistant"
@@ -144,7 +144,7 @@ user_question = st.text_input(
 if user_question:
 
     context = f"""
-You are an AI Finance Controller.
+You are an AI Finance Assistant
 
 You are analyzing payment reconciliation data.
 
