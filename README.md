@@ -83,8 +83,6 @@ The AI is provided with the reconciliation results as context and is instructed 
 * **Excel**
 * **Git & GitHub**
 
-##  Project Structure
-
 ## Project Structure
 
 ```text
@@ -201,7 +199,7 @@ The exception view provides transaction-level details and allows users to ask na
 
 A short walkthrough demonstrating the payment reconciliation dashboard and AI Finance Assistant.
 
-[▶ Watch the Demo Video](demo/ai-payment-reconciliation-demo.mp4)
+[▶ Watch the Demo Video](https://drive.google.com/file/d/1G40kah7KbWhw-_y3mVcD_T-tj1KjRaTS/view?usp=drivesdk)
 
 ##  Power BI Dashboard
 
