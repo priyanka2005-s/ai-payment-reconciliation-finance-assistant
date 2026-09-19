@@ -85,7 +85,6 @@ The AI is provided with the reconciliation results as context and is instructed 
 
 ##  Project Structure
 
-```text
 ai-payment-reconciliation-finance-controller/
 │
 ├── Data/
@@ -102,12 +101,19 @@ ai-payment-reconciliation-finance-controller/
 │   ├── reconciliation_engine.py
 │   └── test_engine.py
 │
+├── images/
+│   ├── streamlit-dashboard-overview.png
+│   ├── streamlit-exceptions-ai.png
+│   └── powerbi-dashboard.png
+│
+├── demo/
+│   └── ai-payment-reconciliation-demo.mp4
+│
 ├── Payment_Reconciliation_Analysis.xlsx
 ├── PBI.pbix
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-```
 
 ##  How It Works
 
