@@ -221,7 +221,7 @@ The exception view provides transaction-level details and allows users to ask na
 
 A short walkthrough demonstrating the payment reconciliation dashboard and AI Finance Assistant.
 
-[▶ Watch the Demo Video](https://drive.google.com/file/d/1G40kah7KbWhw-_y3mVcD_T-tj1KjRaTS/view?usp=drivesdk)
+[▶ Watch the Demo Video](https://drive.google.com/file/d/1JrRDHZ455M2-c42XFvuFj1-S8LH7dTz1/view?usp=drivesdk)
 
 ## Power BI Dashboard
 
